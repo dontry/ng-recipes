@@ -3,8 +3,8 @@
 <input (input)="update($event)" [(ngModel)]="content" />
 <!-- <button (click)="clickme()">Click Me!</button> -->
 <button (click)="addItem()">Add Item!</button>
-<ul *ngFor="let item of items">
-  <li [ngStyle]="{ fontWeight: 'bold' }">
+<ul>
+  <li *ngFor="let item of items" [ngStyle]="{ fontWeight: 'bold' }">
     <p [ngClass]="{ online: item === 'online' }">
       {{ item }}
     </p>
