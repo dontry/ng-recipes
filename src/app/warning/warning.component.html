@@ -1,0 +1,14 @@
+<p>warning works! {{ status }}</p>
+<button (click)="clickme()">Click Me!</button>
+<input (input)="update($event)" [(ngModel)]="content" />
+<!-- <button (click)="clickme()">Click Me!</button> -->
+<button (click)="addItem()">Add Item!</button>
+<ul *ngFor="let item of items">
+  <li [ngStyle]="{ fontWeight: 'bold' }">
+    <p [ngClass]="{ online: item === 'online' }">
+      {{ item }}
+    </p>
+  </li>
+</ul>
+<p>{{ content }}</p>
+<button (click)="reset()" [disabled]="content.length === 0">Reset!</button>
