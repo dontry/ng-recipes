@@ -13,8 +13,7 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit() {}
 
-  onRecipeSelected(event: Event) {
-    console.log('event:', event);
-    this.selectedRecipe = event;
+  onRecipeSelected(recipe: Recipe) {
+    this.selectedRecipe = recipe;
   }
 }
