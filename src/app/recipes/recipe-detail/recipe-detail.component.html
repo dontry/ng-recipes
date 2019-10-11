@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <h1>Responsive Name</h1>
+      <h1>{{ recipe.name }}</h1>
     </div>
   </div>
   <div class="row">
@@ -23,12 +23,14 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      Description
+      <h4>Description</h4>
+      <p>{{ recipe.description }}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
-      Ingredients
+      <h4>Ingredients</h4>
+      <!-- <li *ngFor="let ingredient of ingredients">{{ ingredient.name }}</li> -->
     </div>
   </div>
 </div>
