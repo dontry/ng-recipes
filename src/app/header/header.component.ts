@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { RecipeService } from '../recipes/recipe.service';
 
 @Component({
   selector: 'app-header',
@@ -7,12 +8,15 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
   @Output() featureSelected = new EventEmitter<string>();
-  constructor() {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {}
 
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature)
+  onSaveData() {
+    this.recipeService.storeRecipes();
+  }
+
+  onFetchData() {
+    this.recipeService.fetchRecipes().subscribe();
   }
 }
-
