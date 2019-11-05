@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Recipe } from '../shared/Recipe.model';
 import { Ingredient } from '../shared/Ingredient.model';
 import { ShoppingListService } from '../shopping-list/shopping-list.service';
@@ -8,7 +8,7 @@ import { map, tap } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+  recipeSelected = new Subject<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
   // recipes: Recipe[] = [
   //   new Recipe('sss', 'gasdfasf asdfasdf', '', [
