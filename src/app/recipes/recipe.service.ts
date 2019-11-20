@@ -1,27 +1,38 @@
-import { Injectable } from '@angular/core';
-import { Recipe } from '../shared/Recipe.model';
-import { Ingredient } from '../shared/Ingredient.model';
-import { ShoppingListService } from '../shopping-list/shopping-list.service';
-import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Recipe } from "../shared/Recipe.model";
+import { Ingredient } from "../shared/Ingredient.model";
+import { ShoppingListService } from "../shopping-list/shopping-list.service";
+import { HttpClient } from "@angular/common/http";
+import { Subject } from "rxjs";
+import { map, tap } from "rxjs/operators";
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ providedIn: "root" })
 export class RecipeService {
   recipeSelected = new Subject<Recipe>();
   recipeChanged = new Subject<Recipe[]>();
-  // recipes: Recipe[] = [
-  //   new Recipe('sss', 'gasdfasf asdfasdf', '', [
-  //     new Ingredient('French Fries', 20),
-  //     new Ingredient('Tomatoes', 4),
-  //     new Ingredient('Potatoes', 20)
-  //   ]),
-  //   new Recipe('sss', 'ggg', '', [
-  //     new Ingredient('French Fries', 20),
-  //     new Ingredient('Chicken Breast', 1)
-  //   ])
-  // ];
-  recipes: Recipe[] = [];
+  recipes: Recipe[] = [
+    new Recipe(
+      "Schnitzel",
+      "Very juicy and tasty",
+      "https://natashaskitchen.com/wp-content/uploads/2016/02/Pork-Schnitzel-Recipe-7-600x900.jpg",
+      [
+        new Ingredient("French Fries", 20),
+        new Ingredient("Tomatoes", 4),
+        new Ingredient("Veal", 1)
+      ]
+    ),
+    new Recipe(
+      "Smash Burger Alfresco",
+      "We found that a three-ounce patty hits the sweet spot",
+      "https://assets.bonappetit.com/photos/5d1cb1880813410008e914fc/16:9/w_1280,c_limit/Print-Summer-Smash-Burger.jpg",
+      [
+        new Ingredient("French Fries", 20),
+        new Ingredient("Chicken Breast", 1),
+        new Ingredient("Ketchup", 1)
+      ]
+    )
+  ];
+  // recipes: Recipe[] = [];
 
   constructor(
     private shoppingListService: ShoppingListService,
@@ -58,31 +69,5 @@ export class RecipeService {
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
     this.shoppingListService.addIngredients(ingredients);
-  }
-
-  storeRecipes() {
-    this.http
-      .put(
-        'https://ng-complete-guide-d54c0.firebaseio.com/recipes.json',
-        this.recipes
-      )
-      .subscribe(response => {
-        console.log(response);
-      });
-  }
-
-  fetchRecipes() {
-    return this.http
-      .get<Recipe[]>(
-        'https://ng-complete-guide-d54c0.firebaseio.com/recipes.json'
-      )
-      .pipe(
-        map(recipes => {
-          return recipes.map(recipe => ({ ingredients: [], ...recipe }));
-        }),
-        tap(recipes => {
-          this.setRecipes(recipes);
-        })
-      );
   }
 }
