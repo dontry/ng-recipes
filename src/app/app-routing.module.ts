@@ -12,25 +12,6 @@ import { AuthGuard } from "./auth/auth.guard";
 const routes: Routes = [
   { path: "", redirectTo: "/recipes", pathMatch: "full" },
   { path: "auth", component: AuthComponent },
-  {
-    path: "recipes",
-    component: RecipesComponent,
-    canActivate: [AuthGuard],
-    children: [
-      { path: "", component: RecipeStartComponent },
-      { path: "new", component: RecipeEditComponent },
-      {
-        path: ":id",
-        component: RecipeDetailComponent,
-        resolve: [RecipeResolverService] // runs the resolver before loading the route
-      },
-      {
-        path: ":id/edit",
-        component: RecipeEditComponent,
-        resolve: [RecipeResolverService] // runs the resolver before loading the route
-      }
-    ]
-  },
   { path: "shopping-list", component: ShoppingListComponent }
 ];
 

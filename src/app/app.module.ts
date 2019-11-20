@@ -15,12 +15,8 @@ import { MatListModule } from "@angular/material/list";
 import { WarningComponent } from "./warning/warning.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HeaderComponent } from "./header/header.component";
-import { RecipesComponent } from "./recipes/recipes.component";
-import { RecipeListComponent } from "./recipes/recipe-list/recipe-list.component";
-import { RecipeDetailComponent } from "./recipes/recipe-detail/recipe-detail.component";
 import { ShoppingListComponent } from "./shopping-list/shopping-list.component";
 import { ShoppingEditComponent } from "./shopping-list/shopping-edit/shopping-edit.component";
-import { RecipeItemComponent } from "./recipes/recipe-list/recipe-item/recipe-item.component";
 import { DropdownDirective } from "./shared/dropdown.directive";
 import { ShoppingListService } from "./shopping-list/shopping-list.service";
 import { RecipeStartComponent } from "./recipes/recipe-start/recipe-start.component";
@@ -30,6 +26,7 @@ import { RecipeService } from "./recipes/recipe.service";
 import { AuthComponent } from "./auth/auth.component";
 import { LoadingSpinnerComponent } from "./shared/loading-spinner/loading-spinner.component";
 import { AuthInterceptorService } from "./auth/auth-interceptor.service";
+import { RecipesModule } from "./recipes/recipes.module";
 
 @NgModule({
   declarations: [
@@ -37,15 +34,9 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
     MyNavComponent,
     WarningComponent,
     HeaderComponent,
-    RecipesComponent,
-    RecipeListComponent,
-    RecipeDetailComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    RecipeItemComponent,
     DropdownDirective,
-    RecipeStartComponent,
-    RecipeEditComponent,
     AlertComponent,
     AuthComponent,
     LoadingSpinnerComponent
@@ -62,7 +53,8 @@ import { AuthInterceptorService } from "./auth/auth-interceptor.service";
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    RecipesModule
   ],
   providers: [
     ShoppingListService,
