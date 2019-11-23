@@ -89,6 +89,7 @@ export class AuthService {
       default:
         break;
     }
+    debugger;
     return throwError(errorMessage);
   }
 

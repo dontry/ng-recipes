@@ -6,7 +6,6 @@ import { DropdownDirective } from "./dropdown.directive";
 import { WarningComponent } from "../warning/warning.component";
 import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
 import { RouterModule } from "@angular/router";
-import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 
 @NgModule({
@@ -17,7 +16,7 @@ import { FormsModule } from "@angular/forms";
     WarningComponent,
     LoadingSpinnerComponent
   ],
-  imports: [CommonModule, RouterModule, BrowserModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   exports: [
     AlertComponent,
     HeaderComponent,

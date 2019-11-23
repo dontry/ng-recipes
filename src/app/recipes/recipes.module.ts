@@ -8,7 +8,6 @@ import { RecipesComponent } from "./recipes.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { RecipesRoutingModule } from "./recipes-routing.module";
 import { SharedModule } from "../shared/shared.module";
 
@@ -25,7 +24,6 @@ import { SharedModule } from "../shared/shared.module";
     SharedModule,
     RouterModule,
     ReactiveFormsModule,
-    BrowserModule,
     RecipesRoutingModule
   ]
 })
